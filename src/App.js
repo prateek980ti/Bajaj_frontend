@@ -6,6 +6,7 @@ const App = () => {
   const [jsonInput, setJsonInput] = useState('');
   const [response, setResponse] = useState(null);
   const [selectedSections, setSelectedSections] = useState(['Characters', 'Numbers', 'Highest alphabet']);
+  
 
   const handleChange = (e) => {
     setJsonInput(e.target.value);
@@ -14,7 +15,7 @@ const App = () => {
   const handleSubmit = async () => {
     try {
       const parsedInput = JSON.parse(jsonInput);
-      const res = await axios.post(`${process.env.BACKEND_URL}/bfhl`, parsedInput); // Directly specifying the URL
+      const res = await axios.post(`https://bajaj-backend-snowy.vercel.app/bfhl`, parsedInput); // Directly specifying the URL
       setResponse(res.data);
     } catch (error) {
       console.error('Invalid JSON or API error:', error);
