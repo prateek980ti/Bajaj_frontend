@@ -14,7 +14,7 @@ const App = () => {
   const handleSubmit = async () => {
     try {
       const parsedInput = JSON.parse(jsonInput);
-      const res = await axios.post('http://localhost:3000/bfhl', parsedInput); // Directly specifying the URL
+      const res = await axios.post(`process.env.BACKEND_URL/bfhl`, parsedInput); // Directly specifying the URL
       setResponse(res.data);
     } catch (error) {
       console.error('Invalid JSON or API error:', error);
